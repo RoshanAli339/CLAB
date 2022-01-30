@@ -6,18 +6,28 @@ int main()
 	printf("Enter the number of terms of the Tribonacci series you want to print: ");
 	scanf("%d", &n);
 	
-	printf("The series is as follows: %d %d %d ", a, b, c);
+	printf("The series is as follows: ");
 
-	for (int i = 3; i < n; ++i)
+	if (n == 1)
+		printf("%d", a);
+	else if (n ==2)
+		printf("%d %d", a, b);
+	else if (n == 3)
+		printf("%d %d %d", a, b, c);
+	else
 	{
-		d = a + b + c;
-		printf("%d ", d);
+		printf("The series is as follows: %d %d %d ", a, b, c);
 
-		a = b;
-		b = c;
-		c = d;
+		for (int i = 3; i < n; ++i)
+		{
+			d = a + b + c;
+			printf("%d ", d);
+
+			a = b;
+			b = c;
+			c = d;
+		}
 	}
-
 	printf("\n");
 }
 
