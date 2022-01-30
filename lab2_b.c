@@ -3,10 +3,9 @@
 int main()
 {
 	int n, pcount = 0, ncount = 0, sum = 0;
-	printf("Enter '0' to stop!\n");
 	do
 	{
-		printf("Enter a number: ");
+		printf("Enter a number(0 to stop): ");
 		scanf("%d", &n);
 
 		if (n > 0)
