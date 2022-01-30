@@ -2,7 +2,7 @@
 
 int main()
 {
-	int i, j, k;
+	int i, j;
 	printf("Pattern1 : \n");
 
 	for (i = 1; i <= 10; ++i)
