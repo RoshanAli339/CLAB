@@ -16,7 +16,7 @@ int main()
 		printf("%d %d %d", a, b, c);
 	else
 	{
-		printf("The series is as follows: %d %d %d ", a, b, c);
+		printf("%d %d %d ", a, b, c);
 
 		for (int i = 3; i < n; ++i)
 		{
