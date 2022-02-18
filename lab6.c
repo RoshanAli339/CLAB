@@ -19,7 +19,7 @@ int main()
 
 	do
 	{
-		printf("1.Insert new element\n2.Delete an element\n3.Print elements\n4.Remove duplicates\n5.Quit\n");
+		printf("\n1.Insert new element\n2.Delete an element\n3.Print elements\n4.Remove duplicates\n5.Quit\n");
 		printf("Enter your choice as per the serial number: ");
 		scanf("%d", &choice);
 
