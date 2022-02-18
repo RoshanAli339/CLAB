@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+int search(int[], int, int);
 void insertion(int[], int, int, int);
 void delete(int[], int, int);
 int del_dup(int[], int);
@@ -30,24 +31,36 @@ int main()
 				scanf("%d", &x);
 				printf("Enter the position where you want to insert the element: ");
 				scanf("%d", &pos);
-
-				insertion(a, n, x, pos);
-				n++;
-				printf("After inserting the element the final array is: ");
-				for (int i = 0; i < n; ++i)
-					printf("%d  ", a[i]);
-				printf("\n");
+				
+				if (pos > 10)
+				{
+					printf("The maximum number of elements is 10. Please try a valid value!\n");
+				}
+				else
+				{
+					insertion(a, n, x, pos);
+					n++;
+					printf("After inserting the element the final array is: ");
+					for (int i = 0; i < n; ++i)
+						printf("%d  ", a[i]);
+					printf("\n");
+				}
 				break;
 			case 2:
 				printf("Enter the element you want to delete: ");
 				scanf("%d", &x);
-
-				delete(a, n, x);
-				n--;
-				printf("After deleting the given element the final array is: ");
-				for (int i = 0; i < n; ++i)
-					printf("%d  ", a[i]);
-				printf("\n");
+				
+				if (search(a, n, x))
+				{
+					delete(a, n, x);
+					n--;
+					printf("After deleting the given element the final array is: ");
+					for (int i = 0; i < n; ++i)
+						printf("%d  ", a[i]);
+					printf("\n");
+				}
+				else
+					printf("%d is not found in the given array!\n", x);
 				break;
 			case 3:
 				printf("The elements of the array are: ");
@@ -72,6 +85,26 @@ int main()
 	return 0;
 }
 
+int search(int a[10], int n, int x)
+{
+	int low = 0, high = n - 1;
+	int mid;
+
+	while (low <= high)
+	{
+		mid = (low + high) / 2;
+		if (a[mid] == x)
+		{
+			return 1;
+		}
+		else if (a[mid] < x)
+			low = mid + 1;
+		else
+			high = mid - 1;
+	}
+
+	return 0;
+}
 void insertion(int a[10], int n, int x, int pos)
 {
 	for (int i = n; i > pos - 1; --i)
