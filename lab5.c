@@ -20,7 +20,7 @@ int main()
 		scanf("%d", &a[i]);
 	}
 	
-	do
+	while(1)
 	{
 		printf("\f1.Mean \n2.Median\n3.Variance\n4.Standard Deviation\n5.Quit\n");
 		printf("Enter your choice as per the serial number: ");
@@ -52,7 +52,6 @@ int main()
 				printf("Invalid Input!!\n");
 		}
 	}
-	while(ch != 5);
 	return 0;
 }
 

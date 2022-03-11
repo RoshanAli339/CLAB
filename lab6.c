@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+void display(int[], int);
 int search(int[], int, int);
 void insertion(int[], int, int, int);
 void delete(int[], int, int);
@@ -18,7 +19,7 @@ int main()
 		scanf("%d", &a[i]);
 	}
 
-	do
+	while(1)
 	{
 		printf("\n1.Insert new element\n2.Delete an element\n3.Print elements\n4.Remove duplicates\n5.Quit\n");
 		printf("Enter your choice as per the serial number: ");
@@ -41,10 +42,8 @@ int main()
 					insertion(a, n, x, pos);
 					n++;
 					printf("After inserting the element the final array is: ");
-					for (int i = 0; i < n; ++i)
-						printf("%d  ", a[i]);
-					printf("\n");
-				}
+				    display(a, n);
+                }
 				break;
 			case 2:
 				printf("Enter the element you want to delete: ");
@@ -55,54 +54,43 @@ int main()
 					delete(a, n, x);
 					n--;
 					printf("After deleting the given element the final array is: ");
-					for (int i = 0; i < n; ++i)
-						printf("%d  ", a[i]);
-					printf("\n");
-				}
+				    display(a, n);
+                }
 				else
 					printf("%d is not found in the given array!\n", x);
 				break;
 			case 3:
 				printf("The elements of the array are: ");
-				for (int i = 0; i < n; ++i)
-					printf("%d  ", a[i]);
-				printf("\n");
-				break;
+				display(a, n);
+                break;
 			case 4:
 				duplicates = del_dup(a, n);
 				n -= duplicates;
 				printf("After deleting the duplicate elements the final array is: ");
-				for (int i = 0; i < n; ++i)
-					printf("%d  ", a[i]);
-				printf("\n");
-				break;
+				display(a, n);
+                break;
 			case 5:
 				return 0;
+            default:
+                printf("Invalid Input!!\n");
 		}
 
 	}
-	while (choice != 5);
 	return 0;
 }
-
+void display(int a[10], int n)
+{
+    for (int i = 0; i < n; ++i)
+        printf("%d  ", a[i]);
+    printf("\n");
+}
 int search(int a[10], int n, int x)
 {
-	int low = 0, high = n - 1;
-	int mid;
-
-	while (low <= high)
-	{
-		mid = (low + high) / 2;
-		if (a[mid] == x)
-		{
-			return 1;
-		}
-		else if (a[mid] < x)
-			low = mid + 1;
-		else
-			high = mid - 1;
-	}
-
+    for (int i = 0; i < n; ++i)
+    {
+        if (a[i] == x)
+            return 1;
+    }
 	return 0;
 }
 void insertion(int a[10], int n, int x, int pos)
@@ -111,7 +99,6 @@ void insertion(int a[10], int n, int x, int pos)
 		a[i] = a[i - 1];
 	a[pos - 1] = x;
 }
-
 void delete(int a[10], int n, int x)
 {
 	for (int i = 0; i < n; ++i)
@@ -124,7 +111,6 @@ void delete(int a[10], int n, int x)
 		}
 	}
 }
-
 int del_dup(int a[10], int n)
 {
 	int dup = 0;
@@ -142,6 +128,5 @@ int del_dup(int a[10], int n)
 			}
 		}
 	}
-
 	return dup;
 }
