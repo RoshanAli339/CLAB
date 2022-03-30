@@ -17,7 +17,7 @@ int main()
 	scanf("%d", &choice);
 
 	int decimal, bin, oct;
-	char hex[6];
+	char hex[32];
 
 	switch(choice)
 	{
@@ -114,7 +114,7 @@ int oct_to_dec(int oct)
 	return decimal;
 }
 
-void dec_to_hex(int decimal, char hex[6])
+void dec_to_hex(int decimal, char hex[32])
 {
 	char conv[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
@@ -124,6 +124,7 @@ void dec_to_hex(int decimal, char hex[6])
 	{
 		hex[i] = conv[temp % 16];
 	}
+
 	hex[i] = '\0';
 	int len = strlen(hex);
 
@@ -135,7 +136,7 @@ void dec_to_hex(int decimal, char hex[6])
 	}
 }
 
-int hex_to_dec(char hex[6])
+int hex_to_dec(char hex[32])
 {
 	char conv[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 	int decimal = 0, p = 0;
