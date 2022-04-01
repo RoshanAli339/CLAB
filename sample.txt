@@ -1,0 +1,11 @@
+Hello friends. I am Roshan Ali
+Today I am here to ask a few questions about C programming
+What are pointers
+How do you assign a pointer
+What is Dynamic Memory Allocation
+Pointers are variables that can store address of variables
+We can allocate memory as much as we want using dynamic memory allocation
+the three funcitons used to allocate memory are:
+malloc()
+calloc()
+realloc()
