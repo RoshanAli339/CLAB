@@ -23,7 +23,7 @@ int main()
 
     while (1)
     {
-        printf("1.Add complex numbers\n2.Subtract complex numbers\n3.Multiply complex numbers\n4.Quit\n");
+        printf("\n1.Add complex numbers\n2.Subtract complex numbers\n3.Multiply complex numbers\n4.Quit\n");
         printf("Enter your choice: ");
         scanf("%d", &ch);
 
@@ -31,7 +31,7 @@ int main()
         {
             case 1:
                 n3 = add(n1, n2);
-                printf("Sum of given complex numbers is: %.2f + i(%.2f)\n", n3.real, n3.img);
+                printf("\nSum of given complex numbers is: %.2f + i(%.2f)\n", n3.real, n3.img);
                 break;
             case 2:
                 n3 = subtract(n1, n2);
