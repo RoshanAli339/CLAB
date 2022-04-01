@@ -67,7 +67,7 @@ int main()
 				duplicates = del_dup(a, n);
 				n -= duplicates;
 				printf("After deleting the duplicate elements the final array is: ");
-				display(a, n);
+                display(a, n);
                 break;
 			case 5:
 				return 0;
