@@ -81,18 +81,18 @@ void insert(int *arr, int n, int x, int pos)
 {
     int i;
     for (i = n; i > pos - 1; --i)
-       arr[i] = arr[i - 1];
-    arr[pos - 1] = x;
+       *(arr+i) = *(arr + i - 1);
+    *(arr+pos-1) = x;
 }
 
 void delete(int *arr, int n, int x)
 {
     for (int i = 0; i < n; ++i)
     {
-        if (arr[i] == x)
+        if (*(arr+i) == x)
         {
             for (int j = i; j < n; ++j)
-                arr[j] = arr[j + 1];
+                *(arr+j) = *(arr+j+1);
             n--;
         }
     }
@@ -105,10 +105,10 @@ int del_dup(int *arr, int n)
     {
         for (int j = i + 1; j < n; ++j)
         {
-            if (arr[i] == arr[j])
+            if (*(arr+i) == *(arr+j))
             {
                 for (int k = j; k < n; ++k)
-                    arr[k] = arr[k + 1];
+                    *(arr+k) = *(arr+(k + 1));
                 j--;
                 n--;
                 dup++;
@@ -122,7 +122,7 @@ int search(int *arr, int n, int x)
 {
     for (int i = 0; i < n; ++i)
     {
-        if (arr[i] == x)
+        if (*(arr+i) == x)
             return 1;
     }
     return 0;
