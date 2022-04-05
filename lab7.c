@@ -61,25 +61,29 @@ int main()
 
 void read(int a[5][5], int *r, int *c)
 {
-    printf("Enter number of rows: ");
+    printf("\tEnter number of rows: ");
     scanf("%d", r);
-    printf("Enter number of columns: ");
+    printf("\tEnter number of columns: ");
     scanf("%d", c);
     
     int m = *r;
     int n = *c;
-    printf("Enter the elements of the matrix: \n");
+    printf("\tEnter the elements of the matrix: \n");
     for (int i = 0; i < m; ++i)
+    {
+        printf("\t");
         for (int j = 0; j < n; ++j)
             scanf("%d", &a[i][j]);
+    }
 }
 
 void display (int a[5][5], int r, int c)
 {
     for (int i = 0; i < r; ++i)
     {
+        printf("\t");
         for (int j = 0; j < c; ++j)
-            printf("%d  ", a[i][j]);
+            printf("%3d  ", a[i][j]);
         printf("\n");
     }
 }
