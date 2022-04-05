@@ -47,6 +47,7 @@ int main()
                 break;
             case 3:
                 transpose(a, c, r1, c1);
+                printf("Transpose of Matrix A: \n");
                 display(c, r1, c1);
                 break;
             case 4:
