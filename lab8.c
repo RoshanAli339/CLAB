@@ -125,7 +125,7 @@ void sort(char names[10][30], int n)
     {
         for (int j = 0; j < n - i - 1; ++j)
         {
-            if ( strcmp(names[j], names[j + 1]) > 1)
+            if ( strcmp(names[j], names[j + 1]) > 0)
             {
                 strcpy(temp, names[j]);
                 strcpy(names[j], names[j+1]);
