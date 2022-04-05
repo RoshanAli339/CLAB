@@ -19,12 +19,11 @@ int main()
     printf("Enter the elements of the matrix: \n");
     for (int i = 0; i < m; ++i)
     {
+        *(x+i) = (int*)malloc(n * sizeof(int));
         *(mat+i) = (int*)malloc(n * sizeof(int));
         for (int j = 0; j < n; ++j)
             scanf("%d", (*(mat+i)+j));
     }
-    for (int i = 0; i < m; ++i)
-        *(x+i) = (int*)malloc(n*sizeof(int));
 
     while (1)
     {
@@ -65,7 +64,7 @@ void transpose(int **mat, int **x, int m, int n)
 {
    for (int i = 0; i < m; ++i)
        for (int j = 0; j < n; ++j)
-            x[i][j] = mat[j][i];
+            *(*(x+i)+j) = *(*(mat+j)+i);
 }
 
 void upperTri(int **mat, int m, int n)
