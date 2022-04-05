@@ -66,13 +66,11 @@ void read(int a[5][5], int *r, int *c)
     printf("\tEnter number of columns: ");
     scanf("%d", c);
     
-    int m = *r;
-    int n = *c;
     printf("\tEnter the elements of the matrix: \n");
-    for (int i = 0; i < m; ++i)
+    for (int i = 0; i < *r; ++i)
     {
         printf("\t");
-        for (int j = 0; j < n; ++j)
+        for (int j = 0; j < *c; ++j)
             scanf("%d", &a[i][j]);
     }
 }
