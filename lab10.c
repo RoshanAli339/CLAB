@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <malloc.h>
 
-void transpose(int**, int**, int, int);
-void upperTri(int**, int, int);
-void lowerTri(int**, int, int);
-void display(int**, int, int);
+void transpose(int*[5], int*[5], int, int);
+void upperTri(int*[5], int, int);
+void lowerTri(int*[5], int, int);
+void display(int*[5], int, int);
 
 int main()
 {
@@ -14,15 +14,15 @@ int main()
     printf("Enter number of columns: ");
     scanf("%d", &n);
 
-    int **mat = (int**)malloc(m * sizeof(int*));
-    int **x = (int**)malloc(m * sizeof(int*));
+    int *mat[5];
+    int *x[5];
     printf("Enter the elements of the matrix: \n");
     for (int i = 0; i < m; ++i)
     {
-        *(x+i) = (int*)malloc(n * sizeof(int));
-        *(mat+i) = (int*)malloc(n * sizeof(int));
+        x[i] = (int*)malloc(n * sizeof(int));
+        mat[i] = (int*)malloc(n * sizeof(int));
         for (int j = 0; j < n; ++j)
-            scanf("%d", (*(mat+i)+j));
+            scanf("%d", (mat[i]+j));
     }
 
     while (1)
@@ -60,14 +60,14 @@ int main()
     return 0;
 }
 
-void transpose(int **mat, int **x, int m, int n)
+void transpose(int *mat[5], int *x[5], int m, int n)
 {
    for (int i = 0; i < m; ++i)
        for (int j = 0; j < n; ++j)
-            *(*(x+i)+j) = *(*(mat+j)+i);
+            *(x[i]+j) = *(mat[j]+i);
 }
 
-void upperTri(int **mat, int m, int n)
+void upperTri(int *mat[5], int m, int n)
 {
     for (int i = 0; i < m; ++i)
     {
@@ -76,20 +76,20 @@ void upperTri(int **mat, int m, int n)
             if (i > j)
                 printf("   ");
             else
-                printf("%2d ", *(*(mat+i)+j));
+                printf("%2d ", *(mat[i]+j));
         }
         printf("\n");
     }
 }
     
-void lowerTri(int **mat, int m, int n)
+void lowerTri(int *mat[5], int m, int n)
 {
     for (int i = 0; i < m; ++i)
     {
         for (int j = 0; j < n; ++j)
         {
             if (i >= j)
-                printf("%2d ", *(*(mat+i)+j));
+                printf("%2d ", *(mat[i]+j));
             else
                 printf(" ");
         }
@@ -97,12 +97,12 @@ void lowerTri(int **mat, int m, int n)
     }
 }
 
-void display(int **mat, int m, int n)
+void display(int *mat[5], int m, int n)
 {
     for (int i = 0; i < m; ++i)
     {
         for (int j = 0; j < n; ++j)
-            printf("%2d ", *(*(mat+i)+j));
+            printf("%2d ", *(mat[i]+j));
         printf("\n");
     }
 }
