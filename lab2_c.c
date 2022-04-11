@@ -18,7 +18,7 @@ int main()
 	{
 		printf("%d %d %d ", a, b, c);
 
-		for (int i = 3; i < n; ++i)
+		for (int i = 4; i <= n; ++i)
 		{
 			d = a + b + c;
 			printf("%d ", d);
