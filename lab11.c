@@ -6,6 +6,7 @@ typedef struct
 }
 CPX;
 
+
 CPX add(CPX, CPX);
 CPX subtract(CPX, CPX);
 CPX multiply(CPX, CPX);
