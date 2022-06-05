@@ -8,7 +8,7 @@ int main()
 	printf("Enter the value of b: ");
 	scanf("%d", &b);
 
-	//swapping using bitwise operators
+	
 	a = a ^ b;
 	b = a ^ b;
 	a = a ^ b;
